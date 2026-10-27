@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>간편송금 통신비납부</title>
+	<link href="css/default.css" rel="stylesheet" type="text/css">
+	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.easypiechart.min.js"></script>
+</head>
+<body>
+    <div class="wrap bridge">
+        <div class="fix_wrap">
+            <div class="content_head">
+                <h2>간편송금 통신비납부</h2>
+                <button class="test_btn">aaaaaa</button>
+            </div>
+            <div class="content_body">
+                <div class="content_top">
+                    <h3>보낼 금액</h3>
+                    <p class="amount_pay"><span class="amount_num">1234567</span>원</p>
+                    <p class="bank_account">농협은행 3333-08-0399909</p>
+                </div>
+                <div class="content_bot">
+                    <button class="btn_payment" type="button">납부하기</button>
+                    <p class="copy_an">입금전용계좌번호 자동복사</p>
+                    <p class="caution_text">&#8251;요금납부 시 예금주와 납부금액을 정확히 확인하시기 바랍니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="popup_wrap">
+            <div class="popup_box">
+                <div class="popup_head">
+                    <p><span class="bold">입금전용 계좌번호를 복사</span>했습니다.</p>
+                    <p><span class="app_name">카카오뱅크</span>앱을 실행합니다.</p>
+                </div>
+                <div class="popup_body">
+                    <button class="btn_cnt" type="button">
+                        <a href="#">확인
+                            <span class="timer" data-percent="100">
+                                <span class="count_down">3</span>
+                            </span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    //납부하기 팝업 확인 버튼 내부 타이머
+    function timerCircle() {
+        //원형 그래프
+        $('.timer').easyPieChart({
+            size: 49,
+            barColor: "#ecf1f9",
+            scaleLength: 0,
+            lineWidth: 2,
+            trackColor: "#3617cd",
+            lineCap: "circle",
+            animate: 3000,
+        });
+
+        //타이머 카운트 다운
+        var leftSec = parseInt($('.count_down').text());
+        
+        function reduceSec() {
+            leftSec--;
+            $('.count_down').text(leftSec);
+
+            if (leftSec == 0) {
+                clearInterval(countDown);
+            }
+        }
+
+        var countDown = setInterval(reduceSec, 1000);
+    }
+
+    //납부하기 버튼 클릭시 타이머 함수 실행
+    $('.btn_payment').click(function () {
+        $('.popup_wrap').css('display', 'block');
+        timerCircle();
+    })
+
+    //보낼 금액 세자리 수마다 콤마 추가
+    var payValue = $('.amount_num').text();
+
+    var payValueComma = payValue.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+
+    $('.amount_num').text(payValueComma);
+
+    //pay.html에서 가져온 카카오페이, 카카오뱅크, 페이코 name 값
+    window.localStorage.getItem("appName");
+
+    var selAppName = String(window.localStorage.getItem("appName"));
+
+    //팝업 내부에 선택한 name값 입력
+    $('.app_name').text(selAppName);
+
+    //로컬 스토리지에서 카카오페이, 카카오뱅크, 페이코 name 값 삭제
+    window.localStorage.removeItem('appName');
+    
+</script>
+</html>

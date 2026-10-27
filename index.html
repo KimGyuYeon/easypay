@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>보안 e-mail 요금안내서</title>
+	<link href="css/default.css" rel="stylesheet" type="text/css">
+	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div class="fix_wrap">        
+        <div class="pay_tab">
+            <!-- 간편납부 시작  -->
+            <div id="easypay" class="easypay_wrap">
+                <div class="banner_wrap">
+                    <img src="img/banner_pay2.png" alt="한번에 바로 납부! 원하시는 앱을 통해 바로 납부하세요." />
+                </div>
+                <div class="section_wrap">
+                    <div class="onlyinput">
+                        <div class="desc">
+                            <img src="./img/text1.png" alt="입금 전용 계좌로 바로 송금하기">
+                        </div>
+                        <div class="pay_wrap">
+                            <a href="easypay_bridge.html" class="item_pay2" name="카카오뱅크" role="button"><img src="img/kakao_bank.png" alt="카카오뱅크" /></a>
+                            <a href="easypay_bridge.html" class="item_pay2  PB" name="토스뱅크" role="button"><img src="img/toss_bank.png" alt="토스뱅크" /></a>
+                        </div>
+                    </div>
+                    <div class="greyborder"></div>
+                    <div class="onlyinput">
+                        <div class="desc">
+                            <a href="" class="text_pay"><img src="./img/text2.png" alt="페이머니 포인트로 바로 납부하기"></a>
+                        </div>
+                        <div class="pay_wrap">
+                            <a href="#none" class="item_pay" name="" role="button"><img src="img/kakao_pay.png" alt="카카오페이" /></a>
+                            <a href="#none" class="item_pay" name="" role="button"><img src="img/toss_pay.png" alt="토스페이" /></a>
+                        </div>
+                    </div>
+                    <div class="onlyinput onlyinput1">
+                        <div class="desc">
+                            <a href="" class="text_pay"><img src="./img/text4.png" alt="페이머니 포인트로 바로 납부하기"></a>
+                        </div>
+                        <div class="pay_wrap">
+                            <a href="#none" class="item_pay PB" name="" role="button"><img src="img/naver_pay.png" alt="카카오페이" /></a>
+                            <a href="#none" class="item_pay none" name="" role="button"><img src="img/white.png" alt="토스페이" /></a>
+                        </div>
+                    </div>
+                    <div class="greyborder"></div>
+                    <div class="onlyinput">
+                        <div class="desc">
+                            <a href="" class="text_pay"><img src="./img/text3.png" alt="페이머니 포인트로 바로 납부하기"></a>
+                        </div>
+                        <div class="pay_wrap">
+                            <a href="#none" class="item_pay" name="" role="button"><img src="img/tworld.png" alt="카카오페이" /></a>
+                            <a href="#none" class="item_pay  PB" name="" role="button"><img src="img/bill.png" alt="토스페이" /></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="pay_info_wrap">
+                    <img src="img/back4.png" alt="안내사항">
+
+                    <!-- 챗봇상담버튼 안드로이드/아이폰 -->
+                    <button type="button" class="chatbot_wrap">
+                        <img src="./img/chatbot.gif" alt="AI챗봇상담">
+                    </button>
+                    <button type="button" class="chatbot_wrap">
+                        <img src="./img/chatbot.gif" alt="AI챗봇상담">
+                    </button>
+                    <!-- //챗봇상담버튼 -->
+
+                </div>
+                <div class="info_wrap section">
+                    <div>
+                        <img src="img/banner_vid.png" alt="깜빡 잊고 요금납부 못하셨나요? 간편하게 자동납부 신청하세요!">
+                    </div>
+                    <div class="info_wrap_icon">
+                        <ul>
+                            <li><a href="#none" class="item_pay" name="" role="button"><img src="img/Fcall.png" alt="전화 자동납부신청" /></a></li>
+                            <li><a href="#none" class="item_pay" name="" role="button"><img src="img/Ftworld.png" alt="T월드 자동납부신청" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 간편납부 끝 -->
+
+        </div>
+    </div>
+
+<!-- 제3자 동의 알림창 -->
+    <div id="pay_agree" class="layer_dialog" title="간편송금 납부 제3자 제공 동의" style="display:none;">
+        <p class="txt">
+            SKT 통신요금 간편 송금을 위하여<br>
+            개인정보 제 3자 제공 동의가 필요합니다.
+        </p>
+        <div class="pay_detail">
+            <dl>
+                <dt>제공받는자</dt>	
+                <dd><span class="pay_name"></span></dd>
+            </dl>
+            <dl>
+                <dt>개인정보 제공항목</dt>	
+                <dd>입금전용 계좌정보 서비스 과금정보</dd>
+            </dl>
+            <dl>
+                <dt>제공받는 자의 이용목적</dt>	
+                <dd><span class="pay_name"></span> 서비스 이용을 통한 SK텔레콤 이용금액 납부</dd>
+            </dl>
+            <dl>
+                <dt>제공받는 자의 보유 및 이용기간</dt>
+                <dd>해당 업무 처리 완료 시 까지</dd>
+            </dl>
+        </div>
+        <p class="txt">
+            위 개인정보의 제 3자 제공에 동의하십니까?
+        </p>
+        <div class="btm_btns_wrap">
+            <div class="btm_btns">
+                <button type="button" class="fl_l close">거부</button>
+                <button type="button" class="fl_l em">동의</button>
+            </div>
+        </div>
+    </div>
+    <!-- // 제3자 동의 알림창 -->
+</div>
+
+<script>
+
+    $('.item_pay').click(function () {
+        $("#pay_agree").dialog({
+            title: "간편송금 납부 제3자 제공 동의",
+            modal: true,
+            width: ($(window).width() - 0),
+            height: ($(window).height() - 0),
+            position: ["top", 0],
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close", $(this).parent()).hide();
+                $("html, body").addClass("nscroll");
+            },
+            close: function (event, ui) {
+                $("html, body").removeClass("nscroll");
+            },
+        });
+        // 결제수단 name
+        var pn = $(this).attr("name");
+        $(".pay_name").text(pn);
+    });
+    
+    $("#pay_agree .close").click(function () {
+        $("#pay_agree").dialog("close");
+    }); 
+    
+    //카카오페이, 카카오뱅크, 페이코 클릭 시 name값 로컬 스토리지에 저장
+    $('.item_pay2').each(function(){
+        $(this).click(function () {  
+            var testData = $(this).attr('name'); 
+
+            window.localStorage.setItem("appName", testData);
+        })
+    })
+</script>
+
+</body>
+</html>
